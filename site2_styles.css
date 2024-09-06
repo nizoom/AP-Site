@@ -1,0 +1,4 @@
+/* Does this need to be added every page or include in the global css tab is probably better */
+h1 a {
+  white-space: nowrap;
+}

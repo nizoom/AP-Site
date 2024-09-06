@@ -1,0 +1,537 @@
+@font-face {
+  font-family: "Futura T S New";
+  font-weight: 200;
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/G1944086174489004075911550844313/FuturaTSNewLight.woff")
+    format("woff");
+}
+
+@font-face {
+  font-family: "U R W Classico";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://freight.cargo.site/m/W1944082144705527453691452571033/URWClassico-Regular.woff")
+    format("woff");
+}
+
+html {
+  --mobile-scale: 1.9;
+  --mobile-padding-offset: 0.15;
+}
+
+body {
+  --swatch-1: rgba(0, 0, 0, 0.85);
+  --swatch-2: rgba(0, 0, 0, 0.75);
+  --swatch-3: rgba(0, 0, 0, 0.6);
+  --swatch-4: rgba(0, 0, 0, 0.4);
+  --swatch-5: rgba(0, 0, 0, 0.25);
+  --swatch-6: rgba(37, 211, 231, 0.82);
+  --swatch-7: rgba(0, 0, 0, 0);
+  --swatch-8: #9d061f;
+  --swatch-9: #971b14;
+  --swatch-10: #345b7e;
+  --swatch-11: #ead87c;
+  --swatch-12: #d77838;
+  --swatch-13: #d1ca63;
+  --swatch-14: #faf304;
+  --swatch-15: #d1cad2;
+  --swatch-16: #d3c9d3;
+  --swatch-17: #f2aad5;
+  --swatch-18: #e6f1e9;
+  --swatch-19: #ece7cf;
+  --swatch-20: #b22b14;
+  --swatch-21: #57160b;
+  --swatch-22: #ffdbd1;
+  --swatch-23: #94b6ef;
+  --swatch-24: #eddbc2;
+  --swatch-25: #e6e279;
+  --swatch-26: #dbdbdb;
+  --swatch-27: #d8492c;
+  --swatch-28: #f5afdb;
+  --swatch-29: #fceae2;
+  --swatch-30: #335d53;
+  --swatch-31: #4875c0;
+  --swatch-32: #fca806;
+  --swatch-33: #315d93;
+  --swatch-34: #c6c05d;
+  --swatch-35: #dacfc3;
+  --swatch-36: #e1d5c9;
+  --swatch-37: #659dd4;
+  --swatch-38: #76a6d5;
+  --swatch-39: #414149;
+  --swatch-40: #e6dbd1;
+  --swatch-41: #24aa76;
+  --swatch-42: #f8f8ed;
+  --swatch-43: #f7f1ea;
+}
+
+body.mobile {
+}
+
+a:active,
+.linked:active,
+.zoomable::part(media):active {
+  opacity: 0.7;
+}
+
+.page a.active {
+}
+
+media-item.active::part(media) {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.11);
+}
+
+sub {
+  position: relative;
+  vertical-align: baseline;
+  top: 0.3em;
+}
+
+sup {
+  position: relative;
+  vertical-align: baseline;
+  top: -0.4em;
+}
+
+.small-caps {
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+
+ol {
+  margin: 0;
+  padding: 0 0 0 2.5em;
+}
+
+ul {
+  margin: 0;
+  padding: 0 0 0 2em;
+}
+
+ul.lineated {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin: 0 0 0 2em;
+  text-indent: -2em;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 0 0 2em;
+}
+
+hr {
+  background: rgba(0, 0, 0, 0.75);
+  border: 0;
+  height: 1px;
+  display: block;
+}
+
+.content {
+  border-color: rgba(0, 0, 0, 0.85);
+}
+
+bodycopy {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(37, 211, 231, 0.82);
+  font-family: "Guyot Text";
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  display: block;
+  font-variant-numeric: oldstyle-nums;
+}
+
+bodycopy a {
+  color: rgba(37, 211, 231, 0.82);
+  text-decoration: underline;
+}
+
+bodycopy a:hover {
+}
+
+h1 {
+  font-family: "Arizona Serif Variable";
+  font-style: normal;
+  font-weight: 350;
+  margin: 0;
+  font-size: 8.8rem;
+  line-height: 0.85;
+  color: rgba(37, 211, 231, 0.82);
+  letter-spacing: 0;
+  font-variation-settings: "slnt" -1, "SRFF" 1;
+}
+
+.mobile h1 {
+  font-size: 3.7rem;
+  font-weight: 440;
+}
+
+h1 a {
+  color: rgba(37, 211, 231, 0.82);
+  text-decoration: none;
+}
+
+h1 a:hover {
+}
+
+h2 {
+  font-family: "Diatype Variable";
+  font-style: normal;
+  font-weight: 450;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0em;
+  font-variation-settings: "slnt" 0, "MONO" 0;
+}
+
+h2 a {
+  color: rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+}
+
+h2 a:hover {
+}
+
+.caption {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "Guyot Text";
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0;
+  display: block;
+}
+
+.caption a {
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: underline;
+}
+
+.caption a:hover {
+}
+
+media-item .caption {
+  margin-top: 0.5em;
+}
+
+gallery-grid .caption,
+gallery-columnized .caption,
+gallery-justify .caption {
+  margin-bottom: 2em;
+}
+
+[thumbnail-index] .caption {
+  text-align: center;
+}
+
+[thumbnail-index] .caption .tags {
+  margin-top: 0.25em;
+}
+
+.page {
+  justify-content: flex-end;
+}
+
+.page-content {
+  padding: 5rem;
+  text-align: left;
+  background-color: #436aa2;
+}
+
+.mobile [id] .page-layout {
+  max-width: 100%;
+}
+
+.page-layout {
+  align-items: flex-start;
+  max-width: 55%;
+}
+
+media-item::part(media) {
+  border-radius: 6px;
+  padding: 3px;
+  border: 0;
+  border-style: solid;
+}
+
+.quick-view {
+  height: 100%;
+  width: 100%;
+  padding: 3rem;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+
+.quick-view-background {
+  background-color: #ffffff;
+}
+
+.quick-view .caption {
+  color: rgba(255, 255, 255, 1);
+  padding: 20px 0;
+  text-align: center;
+  transition: 100ms opacity ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.quick-view .caption-background {
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  text-align: left;
+  max-width: 50rem;
+}
+
+.mobile .quick-view {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.mobile .quick-view .caption {
+  padding: 10px 0;
+}
+
+.button-7 {
+  --text-style: "button 7";
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-family: "Guyot Text";
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  font-variant-numeric: oldstyle-nums;
+  color: #ff0000;
+  display: inline-block;
+  border-color: #ff0000;
+  border-style: solid;
+  border-radius: 999rem;
+  padding-top: 0.6rem;
+  padding-right: 1.4rem;
+  padding-bottom: 0.6rem;
+  padding-left: 1.3rem;
+  border-width: 0.2rem;
+  filter: drop-shadow(0.4rem 0.4rem 0rem #ff0000);
+  will-change: filter;
+  background: #ffffff;
+}
+
+.button-7 a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.button-7 a:hover {
+}
+
+.button-7 a.active {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.classico-urw {
+  --text-style: "classico urw";
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(37, 211, 231, 0.82);
+  font-family: U R W Classico;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  display: block;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.classico-urw a {
+  color: rgba(37, 211, 231, 0.82);
+  text-decoration: underline;
+}
+
+.classico-urw a:hover {
+}
+
+.futura {
+  --text-style: "Futura";
+  font-size: 1.3rem;
+  font-weight: 200;
+  color: rgba(37, 211, 231, 0.82);
+  font-family: Futura T S New;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  display: block;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.futura a {
+  color: rgba(37, 211, 231, 0.82);
+  text-decoration: underline;
+}
+
+.futura a:hover {
+}
+
+.heading-3 {
+  --text-style: "Heading 3";
+  font-size: 8rem;
+  font-weight: 400;
+  color: rgba(37, 211, 231, 0.82);
+  font-family: "Guyot Text";
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  display: block;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.heading-3 a {
+  color: rgba(37, 211, 231, 0.82);
+  text-decoration: underline;
+}
+
+.heading-3 a:hover {
+}
+
+.mobile .quick-view .caption-background {
+  max-width: 100vw;
+}
+
+::part(slideshow-nav) {
+  --button-size: 30px;
+  --button-inset: 20px;
+  --button-icon-color: rgba(255, 255, 255, 0.9);
+  --button-icon-stroke-width: 1.5px;
+  --button-icon-stroke-linecap: none;
+  --button-background-color: rgba(87, 87, 87, 0.35);
+  --button-background-radius: 50%;
+  --button-active-opacity: 0.7;
+}
+
+gallery-slideshow::part(slideshow-nav) {
+  --button-inset: 15px;
+}
+
+.quick-view::part(slideshow-nav) {
+}
+
+.wallpaper-slideshow::part(slideshow-nav) {
+}
+
+.mobile ::part(slideshow-nav) {
+  --button-inset: 10px;
+}
+
+.mobile .quick-view::part(slideshow-nav) {
+  --button-inset: 25px;
+}
+
+shop-product {
+  font-size: 1.2rem;
+  max-width: 22rem;
+  font-family: "Diatype Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-variation-settings: "slnt" 0, "MONO" 0;
+  letter-spacing: 0em;
+  margin-bottom: 1em;
+}
+
+shop-product::part(price) {
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+
+shop-product::part(dropdown) {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(https://static.cargo.site/assets/images/select-line-arrows.svg);
+  background-repeat: no-repeat;
+  background-position: top 0em right 0.1em;
+  line-height: 1.2;
+  padding: 0.58em 2em 0.55em 0.9em;
+  border-radius: 10em;
+  margin-bottom: 0.5em;
+}
+
+shop-product::part(button) {
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.75);
+  text-align: left;
+  line-height: normal;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border-radius: 10em;
+}
+
+shop-product::part(button):active {
+  opacity: 0.7;
+}
+
+audio-player {
+  --text-color: rgba(0, 0, 0, 0.85);
+  --text-padding: 0 1.2em 0 1em;
+  --background-color: rgba(255, 255, 255, 0);
+  --buffer-background-color: rgba(0, 0, 0, 0.03);
+  --progress-background-color: rgba(0, 0, 0, 0.075);
+  --border-lines: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.2rem;
+  width: 32rem;
+  height: 2.75em;
+  font-family: "Diatype Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-variation-settings: "slnt" 0, "MONO" 0;
+  line-height: normal;
+  letter-spacing: 0em;
+  margin-bottom: 0.5em;
+  border-radius: 10em;
+}
+
+audio-player::part(button) {
+  --icon-color: rgba(0, 0, 0, 0.85);
+  --icon-size: 32%;
+  --play-text: "";
+  --pause-text: "";
+  width: 3.15em;
+  display: inline-flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+audio-player::part(play-icon) {
+  padding-left: 0.6em;
+}
+
+audio-player::part(pause-icon) {
+  padding-left: 0.4em;
+}
+
+audio-player::part(progress-indicator) {
+  border-right: 1px solid rgba(0, 0, 0, 0);
+  height: 100%;
+  cursor: ew-resize;
+}
+
+audio-player::part(separator) {
+  border-right: var(--border-lines);
+}
+
+body.mobile audio-player {
+  max-width: 100%;
+}
