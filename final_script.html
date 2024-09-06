@@ -1,0 +1,121 @@
+<script>
+  console.log("script tag is running ");
+
+  setTimeout(() => {
+    const triggerElement = document.querySelector("#T3057851291 > div > div");
+    triggerElement.addEventListener("click", observePageTransitions);
+  }, 500);
+
+  // Function to set up the MutationObserver
+  function observePageTransitions() {
+    console.log("Setting up the MutationObserver...");
+
+    // Define the target node to observe (can be document.body or a specific container)
+    const targetNode = document.body; // You can change this to a more specific part of the page
+
+    // Options for the observer (which mutations to observe)
+    const config = { childList: true, subtree: true };
+
+    // Callback function that runs when a mutation is detected
+    const mutationCallback = (mutationsList, observer) => {
+      mutationsList.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          console.log(
+            "A page transition or DOM change has occurred!",
+            mutation
+          );
+        }
+      });
+    };
+    // Create an instance of MutationObserver and pass the callback
+    const observer = new MutationObserver(mutationCallback);
+    // Start observing the target node with the specified config
+    observer.observe(targetNode, config);
+    console.log("MutationObserver is now watching for page transitions.");
+    colorAlignController();
+  }
+
+  // these elements have the same path / "name" regardless of page
+  const getConstantEls = () => {
+    const headerSectionElement = document.querySelector(
+      "#K0174265030 > div > div"
+    );
+    const aPNameElement = document.querySelector(
+      "#K0174265030 > div > div > bodycopy > column-set > column-unit:nth-child(3) > div > h1 > span"
+    );
+    return [headerSectionElement, aPNameElement];
+  };
+
+  const colorAlignController = () => {
+    const mainPageElJsString = "> div > div";
+    const captionElJsString =
+      "> div > div > bodycopy > column-set > column-unit > gallery-justify > media-item:nth-child(1) > figcaption > span";
+    setTimeout(() => {
+      const [headerSectionElement, aPNameElement] = getConstantEls();
+      const currentMainPageEl = getColorDeterminingElement(mainPageElJsString);
+      const currentCaptionElement =
+        getColorDeterminingElement(captionElJsString);
+
+      // conditional logic ensuring that constant element and variable element exist
+
+      if (currentMainPageEl && headerSectionElement) {
+        alignColors(
+          currentMainPageEl,
+          headerSectionElement,
+          "background-color",
+          "backgroundColor"
+        );
+      } else {
+        // console.log("Header process elements main and header");
+        // console.log(currentMainPageEl);
+        // console.log(headerSectionElement);
+      }
+
+      if (currentCaptionElement && aPNameElement) {
+        alignColors(currentCaptionElement, aPNameElement, "color", "color");
+      } else {
+        // console.log("Name process elements main and header");
+        // console.log(currentCaptionElement);
+        // console.log(aPNameElement);
+      }
+      return false;
+    }, 100);
+  };
+
+  const getColorDeterminingElement = (elementJSPathString) => {
+    const pageIds = [
+      "O0106132807",
+      "F3645062839",
+      "V2310587329",
+      "H4280264991",
+      "X0385859603",
+      "S4102939361",
+      "L3218446703",
+    ];
+    for (id of pageIds) {
+      const potentialElement = document.querySelector(
+        `#${id} ${elementJSPathString}`
+      );
+      if (potentialElement) {
+        // console.log(`element #${id} ${elementJSPathString} has been found`);
+        return potentialElement;
+      }
+    }
+    console.log("expected element " + elementJSPathString + " not present");
+    return false;
+  };
+  const alignColors = (element1, element2, styleNeeded, cssProperty) => {
+    // console.log("setting colors");
+    const cssValue = window
+      .getComputedStyle(element1, null)
+      .getPropertyValue(styleNeeded);
+    console.log(`computed style ${cssValue}`);
+    element2.style[cssProperty] = cssValue;
+    // extra step needed to change the "ANDIYAH" part of the element because its a seperate <a> element
+    if (cssProperty === "color") {
+      // aPNameLement
+      const aElement = element2.querySelector("a");
+      aElement.style.color = cssValue;
+    }
+  };
+</script>
