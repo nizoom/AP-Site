@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="one-third-section"></div>
+      <div class="header-wrapper">
+        <h1
+          name="name-elment"
+          style="font-family: 'EB Garamond', serif"
+          onclick="toggleMenu()"
+        >
+          ANDIYAH PATRICK
+        </h1>
+        <div class="menu-wrapper"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const toggleMenu = () => {
+    console.log("toggling menu");
+  };
+</script>
+<style>
+  body {
+    background-color: #414149;
+  }
+  .page-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100vh;
+  }
+  h1 {
+    color: rgb(37, 211, 231);
+  }
+  .header-wrapper h1 {
+    cursor: pointer;
+    float: right;
+  }
+  .one-third-section {
+    background-color: #b22b14;
+  }
+</style>
