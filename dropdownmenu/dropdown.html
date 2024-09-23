@@ -22,7 +22,18 @@
         >
           ANDIYAH PATRICK
         </h1>
-        <div class="menu-wrapper"></div>
+        <nav class="menu-wrapper">
+          <ol>
+            <li class="menu-item">
+              <button class="x-btn"><span>&#10005;</span></button>
+              HEALTHCARE
+            </li>
+            <li class="menu-item"><p>FOOD & DRINK</p></li>
+            <li class="menu-item"><p>BEAUTY</p></li>
+            <li class="menu-item"><p>BABY & KIDS</p></li>
+            <li class="menu-item"><p>HOMEWARES</p></li>
+          </ol>
+        </nav>
       </div>
     </div>
   </body>
@@ -44,11 +55,65 @@
   h1 {
     color: rgb(37, 211, 231);
   }
+  .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
   .header-wrapper h1 {
     cursor: pointer;
     float: right;
   }
   .one-third-section {
     background-color: #b22b14;
+  }
+  .menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+  }
+  .menu-wrapper ol {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: left;
+    margin-left: 0;
+    font-family: "EB Garamond", serif;
+    font-weight: bold;
+  }
+
+  .menu-wrapper ol li:nth-child(n + 1) {
+    background-color: #8ddae8;
+    color: #245184;
+  }
+  .menu-wrapper ol li:nth-child(n + 2) {
+    background-color: #1d653e;
+    color: #e1be4c;
+  }
+  .menu-wrapper ol li:nth-child(n + 3) {
+    background-color: #f9bfc0;
+    color: #d94c66;
+  }
+  .menu-wrapper ol li:nth-child(n + 4) {
+    background-color: #113384;
+    color: #e7c9de;
+  }
+  .menu-wrapper ol li:nth-child(n + 5) {
+    background-color: #f8b426;
+    color: #f6f3d4;
+  }
+  .x-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    align-self: flex-end;
+    width: 15px;
+    cursor: pointer;
   }
 </style>
