@@ -25,7 +25,9 @@
         <nav class="menu-wrapper">
           <ol>
             <li class="menu-item">
-              <button class="x-btn"><span>&#10005;</span></button>
+              <button class="x-btn">
+                <span onclick="toggleMenu()">&#10005;</span>
+              </button>
               HEALTHCARE
             </li>
             <li class="menu-item"><p>FOOD & DRINK</p></li>
@@ -41,42 +43,65 @@
 <script>
   const toggleMenu = () => {
     console.log("toggling menu");
+    const menu = document.querySelector(".menu-wrapper");
+    menu.classList.toggle("show-menu");
+    menu.classList.toggle("hide-menu");
   };
 </script>
 <style>
   body {
     background-color: #414149;
   }
+
   .page-wrapper {
     display: grid;
     grid-template-columns: 40% 60%;
     height: 100vh;
   }
+
   h1 {
     color: rgb(37, 211, 231);
   }
+
   .header-wrapper {
     display: flex;
     flex-direction: column;
     align-items: end;
   }
+
   .header-wrapper h1 {
     cursor: pointer;
     float: right;
   }
+
   .one-third-section {
     background-color: #b22b14;
   }
+
   .menu-wrapper {
     display: flex;
     flex-direction: column;
     width: 50%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    right: -50%; /* Initially hidden off-screen */
+    transition: right 0.5s ease; /* Smooth slide */
   }
+
+  .show-menu {
+    right: 50; /* Slide in */
+  }
+
+  .hide-menu {
+    right: 0%; /* Slide out */
+  }
+
   .menu-wrapper ol {
     list-style-type: none;
     padding-left: 0;
   }
+
   .menu-item {
     display: flex;
     flex-direction: column;
@@ -91,27 +116,31 @@
     background-color: #8ddae8;
     color: #245184;
   }
+
   .menu-wrapper ol li:nth-child(n + 2) {
     background-color: #1d653e;
     color: #e1be4c;
   }
+
   .menu-wrapper ol li:nth-child(n + 3) {
     background-color: #f9bfc0;
     color: #d94c66;
   }
+
   .menu-wrapper ol li:nth-child(n + 4) {
     background-color: #113384;
     color: #e7c9de;
   }
+
   .menu-wrapper ol li:nth-child(n + 5) {
     background-color: #f8b426;
     color: #f6f3d4;
   }
+
   .x-btn {
     border: none;
     background-color: transparent;
     padding: 0;
-
     align-self: flex-end;
     width: 15px;
     cursor: pointer;
