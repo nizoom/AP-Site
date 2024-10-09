@@ -16,35 +16,24 @@
       <div class="one-third-section"></div>
       <div class="header-wrapper">
         <h1
-          name="name-element"
-          style="font-family: 'EB Garamond', serif; font-size: 3rem"
+          name="name-elment"
+          style="font-family: 'EB Garamond', serif"
           onclick="toggleMenu()"
         >
           ANDIYAH PATRICK
         </h1>
         <nav class="menu-wrapper">
           <ol>
-            <li class="menu-item" id="about-andiyah">
+            <li class="menu-item">
               <button class="x-btn">
                 <span onclick="toggleMenu()">&#10005;</span>
               </button>
-              <p>About Andiyah</p>
+              HEALTHCARE
             </li>
-            <li class="menu-item" id="casa-del-mar"><p>Casa Del Mar</p></li>
-            <li class="menu-item" id="the-spiral"><p>The Spiral</p></li>
-            <li class="menu-item" id="byredo"><p>Byredo</p></li>
-            <li class="menu-item" id="Waldorf-part-1">
-              <p>Waldorf Astoria New York 1</p>
-            </li>
-            <li class="menu-item" id="mti"><p>Mti Mti in Denim</p></li>
-            <li class="menu-item" id="the-cove"><p>The Cove</p></li>
-            <li class="menu-item" id="sound-view">
-              <p>The Sound View Greenport</p>
-            </li>
-            <li class="menu-item" id="moxy"><p>Moxy Hotels</p></li>
-            <li class="menu-item" id="Waldorf-part-2">
-              <p>Waldorf Astoria New York 2</p>
-            </li>
+            <li class="menu-item"><p>FOOD & DRINK</p></li>
+            <li class="menu-item"><p>BEAUTY</p></li>
+            <li class="menu-item"><p>BABY & KIDS</p></li>
+            <li class="menu-item"><p>HOMEWARES</p></li>
           </ol>
         </nav>
       </div>
@@ -92,12 +81,7 @@
   .menu-wrapper {
     display: flex;
     flex-direction: column;
-    width: clamp(
-      300px,
-      30%,
-      400px
-    ); /* Adjusts between 200px and 400px, with 30% as the preferred size */
-
+    width: 50%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -122,54 +106,35 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    text-align: center;
-    justify-content: center;
-    height: 40px;
+    text-align: left;
     margin-left: 0;
     font-family: "EB Garamond", serif;
     font-weight: bold;
   }
 
-  #about-andiyah {
-    background-color: #ffdbd1;
-    color: #b22b14;
-  }
-  #casa-del-mar {
-    background-color: #e1d5c9;
-    color: #d77838;
-  }
-  #the-spiral {
-    background-color: #57160b;
-    color: #ead87c;
-  }
-  #byredo {
-    background-color: #b22b14;
-    color: #ffdbd1;
+  .menu-wrapper ol li:nth-child(n + 1) {
+    background-color: #8ddae8;
+    color: #245184;
   }
 
-  #Waldorf-part-1 {
-    background-color: #315d93;
-    color: #d7b9d7;
+  .menu-wrapper ol li:nth-child(n + 2) {
+    background-color: #1d653e;
+    color: #e1be4c;
   }
-  #mti {
-    background-color: #d1ca63;
-    color: #315d93;
+
+  .menu-wrapper ol li:nth-child(n + 3) {
+    background-color: #f9bfc0;
+    color: #d94c66;
   }
-  #the-cove {
-    background-color: #d7b9d7;
-    color: #57160b;
+
+  .menu-wrapper ol li:nth-child(n + 4) {
+    background-color: #113384;
+    color: #e7c9de;
   }
-  #sound-view {
-    background-color: #e1d5c9;
-    color: #315d93;
-  }
-  #moxy {
-    background-color: #315d93;
-    color: #d1ca63;
-  }
-  #Waldorf-part-2 {
-    background-color: #b22b14;
-    color: #d7b9d7;
+
+  .menu-wrapper ol li:nth-child(n + 5) {
+    background-color: #f8b426;
+    color: #f6f3d4;
   }
 
   .x-btn {
@@ -178,9 +143,6 @@
     padding: 0;
     align-self: flex-end;
     width: 15px;
-    position: absolute;
-    top: 25px;
-    right: 10px;
     cursor: pointer;
   }
 </style>
