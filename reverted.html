@@ -1,15 +1,11 @@
 <script>
   console.log("script tag is running ");
 
-  // Your code here
-
   setTimeout(() => {
     const triggerElement = document.querySelector("#T3057851291 > div > div");
-    if (triggerElement) {
-      triggerElement.addEventListener("click", observePageTransitions);
-      return;
-    }
+    triggerElement.addEventListener("click", observePageTransitions);
   }, 500);
+
   // Function to set up the MutationObserver
   function observePageTransitions() {
     console.log("Setting up the MutationObserver...");
@@ -28,20 +24,22 @@
             "A page transition or DOM change has occurred!",
             mutation
           );
+          const navElement = document.getElementsByClassName("menu-wrapper")[0];
+
           const aPNameElement = document.querySelector(
             "#K0174265030 > div > div > bodycopy > column-set > column-unit:nth-child(3) > div > h1 > span"
           );
-          const navElement = document.getElementsByClassName(".menu-wrapper");
+
           if (aPNameElement) {
-            // console.log("aPNameElement " + aPNameElement);
-            aPNameElement.addEventListener("click", toggleCustomMenu);
-            if (!navElement) {
-              injectMenu();
-            } else {
-              console.log("nav already added found");
-            }
+            console.log("aPNameElement " + aPNameElement);
+            aPNameElement.addEventListener("click", triggerSideBar);
           } else {
-            console.log("Name element not found");
+            console.log("element not found");
+          }
+          if (!navElement) {
+            injectMenu();
+          } else {
+            console.log("menu already exists");
           }
         }
       });
@@ -54,14 +52,68 @@
     colorAlignController();
   }
   // MENU AJAX SECTION
-
-  const toggleCustomMenu = () => {
+  const triggerSideBar = () => {
     console.log("toggling menu");
-    const menu = document.querySelector(".menu-wrapper");
-    menu.classList.toggle("show-menu");
-    menu.classList.toggle("hide-menu");
+    const navElement = document.getElementsByClassName("menu-wrapper")[0];
+    if (navElement) {
+      navElement.classList.toggle("show-menu");
+      navElement.classList.toggle("hide-menu");
+    }
   };
+  // Function to create and inject the HTML string into the DOM
+  const injectMenu = () => {
+    console.log("Injecting menu HTML...");
 
+    // Create a new nav element (menu-wrapper)
+    const navElement = document.createElement("nav");
+    navElement.className = "menu-wrapper";
+
+    // Set the innerHTML of the navElement to the provided HTML string
+    navElement.innerHTML = `
+    <ol>
+      <li class="menu-item" id="about-andiyah">
+        <button class="x-btn">
+          <span class="close-btn">&#10005;</span>
+        </button>
+        <p>About Andiyah</p>
+      </li>
+      <li class="menu-item" id="casa-del-mar">
+        <p>Casa Del Mar</p>
+      </li>
+      <li class="menu-item" id="the-spiral">
+        <p>The Spiral</p>
+      </li>
+      <li class="menu-item" id="byredo">
+        <p>Byredo</p>
+      </li>
+      <li class="menu-item" id="Waldorf-part-1">
+        <p>Waldorf Astoria New York 1</p>
+      </li>
+      <li class="menu-item" id="mti">
+        <p>Mti Mti in Denim</p>
+      </li>
+      <li class="menu-item" id="the-cove">
+        <p>The Cove</p>
+      </li>
+      <li class="menu-item" id="sound-view">
+        <p>The Sound View Greenport</p>
+      </li>
+      <li class="menu-item" id="moxy">
+        <p>Moxy Hotels</p>
+      </li>
+      <li class="menu-item" id="Waldorf-part-2">
+        <p>Waldorf Astoria New York 2</p>
+      </li>
+    </ol>
+  `;
+
+    // Append the new navElement to the header element  (or to another specific container)
+    const target = document.querySelector("#K0174265030") || document.body;
+    target.appendChild(navElement);
+    navElement
+      .querySelector(".close-btn")
+      .addEventListener("click", triggerSideBar);
+  };
   // these elements have the same path / "name" regardless of page
   const getConstantEls = () => {
     const headerSectionElement = document.querySelector(
@@ -72,14 +124,6 @@
     );
     return [headerSectionElement, aPNameElement];
   };
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const triggerElement = document.querySelector("#T3057851291 > div > div");
-    if (triggerElement) {
-      triggerElement.addEventListener("click", observePageTransitions);
-    }
-    console.log("DOCUMENT LOADED");
-  });
 
   const colorAlignController = () => {
     const mainPageElJsString = "> div > div";
