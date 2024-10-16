@@ -31,10 +31,10 @@
           );
 
           if (aPNameElement) {
-            console.log("aPNameElement " + aPNameElement);
+            // console.log("aPNameElement " + aPNameElement);
             aPNameElement.addEventListener("click", triggerSideBar);
           } else {
-            console.log("element not found");
+            console.log("aP Name element not found");
           }
           if (!navElement) {
             injectMenu();
@@ -170,6 +170,7 @@
       "X0385859603",
       "S4102939361",
       "L3218446703",
+      "X3259902604",
     ];
     for (id of pageIds) {
       const potentialElement = document.querySelector(
@@ -188,7 +189,9 @@
     const cssValue = window
       .getComputedStyle(element1, null)
       .getPropertyValue(styleNeeded);
-    // console.log(`computed style ${cssValue}`);
+    // console.log(
+    //   `computed style ${cssValue} from element1 which is ${element1}`
+    // );
     element2.style[cssProperty] = cssValue;
     // extra step needed to change the "ANDIYAH" part of the element because its a seperate <a> element
     if (cssProperty === "color") {

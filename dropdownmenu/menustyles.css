@@ -1,0 +1,99 @@
+/* COPY INTO CUSTOM CSS SECTION AT THE END*/
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: clamp(
+    300px,
+    30%,
+    400px
+  ); /* Adjusts between 200px and 400px, with 30% as the preferred size */
+
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50%; /* Initially hidden off-screen */
+  transition: right 0.5s ease; /* Smooth slide */
+}
+
+.show-menu {
+  right: 50; /* Slide in */
+}
+
+.hide-menu {
+  right: 0%; /* Slide out */
+}
+
+.menu-wrapper ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+  justify-content: center;
+  height: 40px;
+  margin-left: 0;
+  font-family: "EB Garamond", serif;
+  font-weight: bold;
+}
+
+.menu-item p {
+  font-size: 21.5px;
+}
+
+#about-andiyah {
+  background-color: #ffdbd1;
+  color: #b22b14;
+}
+#casa-del-mar {
+  background-color: #e1d5c9;
+  color: #d77838;
+}
+#the-spiral {
+  background-color: #57160b;
+  color: #ead87c;
+}
+#byredo {
+  background-color: #b22b14;
+  color: #ffdbd1;
+}
+
+#Waldorf-part-1 {
+  background-color: #315d93;
+  color: #d7b9d7;
+}
+#mti {
+  background-color: #d1ca63;
+  color: #315d93;
+}
+#the-cove {
+  background-color: #d7b9d7;
+  color: #57160b;
+}
+#sound-view {
+  background-color: #e1d5c9;
+  color: #315d93;
+}
+#moxy {
+  background-color: #315d93;
+  color: #d1ca63;
+}
+#Waldorf-part-2 {
+  background-color: #b22b14;
+  color: #d7b9d7;
+}
+
+.x-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  align-self: flex-end;
+  width: 15px;
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  cursor: pointer;
+}
