@@ -1,124 +1,18 @@
 <script>
   console.log("script tag is running ");
 
-  setTimeout(() => {
-    const triggerElement = document.querySelector("#T3057851291 > div > div");
-    triggerElement.addEventListener("click", observePageTransitions);
-  }, 500);
-
-  // Function to set up the MutationObserver
-  function observePageTransitions() {
-    console.log("Setting up the MutationObserver...");
-
-    // Define the target node to observe (can be document.body or a specific container)
-    const targetNode = document.body; // You can change this to a more specific part of the page
-
-    // Options for the observer (which mutations to observe)
-    const config = { childList: true, subtree: true };
-
-    // Callback function that runs when a mutation is detected
-    const mutationCallback = (mutationsList, observer) => {
-      mutationsList.forEach((mutation) => {
-        if (mutation.type === "childList") {
-          console.log(
-            "A page transition or DOM change has occurred!",
-            mutation
-          );
-          const navElement = document.getElementsByClassName("menu-wrapper")[0];
-
-          const aPNameElement = document.querySelector(
-            "#K0174265030 > div > div > bodycopy > column-set > column-unit:nth-child(3) > div > h1 > span"
-          );
-          console.log(
-            "here is the hidden element" +
-              document.querySelector("#F3645062839")
-          );
-
-          if (aPNameElement) {
-            // console.log("aPNameElement " + aPNameElement);
-            aPNameElement.addEventListener("click", triggerSideBar);
-          } else {
-            console.log("aP Name element not found");
-          }
-          if (!navElement) {
-            injectMenu();
-          } else {
-            console.log("menu already exists");
-          }
-        }
-      });
-    };
-    // Create an instance of MutationObserver and pass the callback
-    const observer = new MutationObserver(mutationCallback);
-    // Start observing the target node with the specified config
-    observer.observe(targetNode, config);
-    console.log("MutationObserver is now watching for page transitions.");
-    colorAlignController();
-  }
-  // MENU AJAX SECTION
-  const triggerSideBar = () => {
-    console.log("toggling menu");
-    const navElement = document.getElementsByClassName("menu-wrapper")[0];
-    if (navElement) {
-      navElement.classList.toggle("show-menu");
-      navElement.classList.toggle("hide-menu");
+  let pathname = location.pathname;
+  window.addEventListener("click", function () {
+    if (location.pathname != pathname) {
+      pathname = location.pathname;
+      // code
+      setTimeout(() => {
+        colorAlignController();
+      }, 100);
     }
-  };
-  // Function to create and inject the HTML string into the DOM
-  const injectMenu = () => {
-    console.log("Injecting menu HTML...");
+  });
 
-    // Create a new nav element (menu-wrapper)
-    const navElement = document.createElement("nav");
-    navElement.className = "menu-wrapper";
-
-    // Set the innerHTML of the navElement to the provided HTML string
-    navElement.innerHTML = `
-    <ol>
-      <li class="menu-item" id="about-andiyah">
-        <button class="x-btn">
-          <span class="close-btn">&#10005;</span>
-        </button>
-        <p>About Andiyah</p>
-      </li>
-      <li class="menu-item" id="casa-del-mar">
-        <p>Casa Del Mar</p>
-      </li>
-      <li class="menu-item" id="the-spiral">
-        <p>The Spiral</p>
-      </li>
-      <li class="menu-item" id="byredo">
-        <p>Byredo</p>
-      </li>
-      <li class="menu-item" id="Waldorf-part-1">
-        <p>Waldorf Astoria New York 1</p>
-      </li>
-      <li class="menu-item" id="mti">
-        <p>Mti Mti in Denim</p>
-      </li>
-      <li class="menu-item" id="the-cove">
-        <p>The Cove</p>
-      </li>
-      <li class="menu-item" id="sound-view">
-        <p>The Sound View Greenport</p>
-      </li>
-      <li class="menu-item" id="moxy">
-        <p>Moxy Hotels</p>
-      </li>
-      <li class="menu-item" id="Waldorf-part-2">
-        <p>Waldorf Astoria New York 2</p>
-      </li>
-    </ol>
-  `;
-
-    // Append the new navElement to the header element  (or to another specific container)
-    const target = document.querySelector("#K0174265030") || document.body;
-    target.appendChild(navElement);
-    navElement
-      .querySelector(".close-btn")
-      .addEventListener("click", triggerSideBar);
-  };
-  // these elements have the same path / "name" regardless of page
+  //hese elements have the same path / "name" regardless of page
   const getConstantEls = () => {
     const headerSectionElement = document.querySelector(
       "#K0174265030 > div > div"
@@ -126,40 +20,44 @@
     const aPNameElement = document.querySelector(
       "#K0174265030 > div > div > bodycopy > column-set > column-unit:nth-child(3) > div > h1 > span"
     );
-    return [headerSectionElement, aPNameElement];
+    const bannerElement = document.querySelector("#O4186593732 > div > div");
+    return [headerSectionElement, aPNameElement, bannerElement];
   };
 
+  const confirmElmntsExist = (arrayOfElements) => {
+    return arrayOfElements.every((element) => document.body.contains(element));
+  };
   const colorAlignController = () => {
     const mainPageElJsString = "> div > div";
     const captionElJsString =
       "> div > div > bodycopy > column-set > column-unit > gallery-justify > media-item:nth-child(1) > figcaption > span";
     setTimeout(() => {
-      const [headerSectionElement, aPNameElement] = getConstantEls();
+      const [headerSectionElement, aPNameElement, bannerElement] =
+        getConstantEls();
       const currentMainPageEl = getColorDeterminingElement(mainPageElJsString);
       const currentCaptionElement =
         getColorDeterminingElement(captionElJsString);
-
-      // conditional logic ensuring that constant element and variable element exist
-
-      if (currentMainPageEl && headerSectionElement) {
+      // if currentMain page exists then assign current background color to header background color
+      if (
+        confirmElmntsExist([headerSectionElement, aPNameElement, bannerElement])
+      ) {
+        console.log("confirmed");
         alignColors(
+          [headerSectionElement, bannerElement],
           currentMainPageEl,
-          headerSectionElement,
           "background-color",
           "backgroundColor"
         );
       } else {
-        // console.log("Header process elements main and header");
-        // console.log(currentMainPageEl);
-        // console.log(headerSectionElement);
+        console.log("an element does not exist");
       }
-
+      // if currentcaptionEl and apName Exists then assign caption color as name color
       if (currentCaptionElement && aPNameElement) {
-        alignColors(currentCaptionElement, aPNameElement, "color", "color");
+        alignColors([aPNameElement], currentCaptionElement, "color", "color");
       } else {
-        // console.log("Name process elements main and header");
-        // console.log(currentCaptionElement);
-        // console.log(aPNameElement);
+        console.log("Name process elements main and header");
+        console.log(currentCaptionElement);
+        console.log(aPNameElement);
       }
       return false;
     }, 100);
@@ -175,33 +73,37 @@
       "S4102939361",
       "L3218446703",
       "X3259902604",
+      "F3607908150",
     ];
     for (id of pageIds) {
       const potentialElement = document.querySelector(
         `#${id} ${elementJSPathString}`
       );
       if (potentialElement) {
-        // console.log(`element #${id} ${elementJSPathString} has been found`);
         return potentialElement;
       }
     }
-    // console.log("expected element " + elementJSPathString + " not present");
     return false;
   };
-  const alignColors = (element1, element2, styleNeeded, cssProperty) => {
-    // console.log("setting colors");
+  const alignColors = (
+    elementsArray,
+    referenceElement,
+    styleNeeded,
+    cssProperty
+  ) => {
+    console.log("setting colors");
     const cssValue = window
-      .getComputedStyle(element1, null)
+      .getComputedStyle(referenceElement, null)
       .getPropertyValue(styleNeeded);
-    // console.log(
-    //   `computed style ${cssValue} from element1 which is ${element1}`
-    // );
-    element2.style[cssProperty] = cssValue;
-    // extra step needed to change the "ANDIYAH" part of the element because its a seperate <a> element
-    if (cssProperty === "color") {
-      // aPNameLement
-      const aElement = element2.querySelector("a");
-      aElement.style.color = cssValue;
-    }
+
+    elementsArray.forEach((element) => {
+      element.style[cssProperty] = cssValue;
+      // extra step needed to change the "ANDIYAH" part of the element because its a seperate <a> element
+      if (cssProperty === "color") {
+        // aPNameLement
+        const aElement = element.querySelector("a");
+        aElement.style.color = cssValue;
+      }
+    });
   };
 </script>
