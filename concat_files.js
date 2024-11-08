@@ -1,7 +1,15 @@
 const fs = require("fs");
 const path = require("path");
 
-const files = ["./main_script.js", "./test_addition.js"];
+const files = [
+  "./utils/triggerUtil.js",
+  "./utils/getterUtil.js",
+  "./utils/colorAlignControllerUtil.js",
+  "./utils/getColorDeterminElsUtil.js",
+  "./utils/alignColorUtil.js",
+  "./utils/sessionStateUtil.js",
+  "./utils/browserNavUtil.js",
+];
 
 let concatenatedCode = "";
 

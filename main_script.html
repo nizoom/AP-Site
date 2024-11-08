@@ -1,4 +1,5 @@
 <script>
+  // TRIGGER UTIL
   console.log("script tag is running ");
   let pathname = location.pathname; // Initial pathname assignment
 
@@ -21,7 +22,9 @@
     pathCompareAndColorTrigger();
   });
 
-  //hese elements have the same path / "name" regardless of page
+  //GETTER UTIL
+
+  //these elements have the same path / "name" regardless of page
   const getConstantEls = () => {
     const headerSectionElement = document.querySelector(
       "#K0174265030 > div > div"
@@ -37,6 +40,8 @@
   const confirmElmntsExist = (arrayOfElements) => {
     return arrayOfElements.every((element) => document.body.contains(element));
   };
+
+  // COLOR ALIGN UTIL
   const colorAlignController = () => {
     const currentPath = location.pathname;
     // getting current color determining elements
@@ -86,6 +91,8 @@
     }, 100);
   };
 
+  // GET COLOR DETERMINING ELEMENTS UTIL
+
   const getColorDeterminingElement = (elementJSPathString) => {
     const pageIds = [
       "O0106132807",
@@ -108,6 +115,8 @@
     }
     return false;
   };
+
+  // ALIGN COLOR UTIL
   const alignColors = (
     elementsArray,
     referenceElement,
@@ -129,6 +138,8 @@
       }
     });
   };
+
+  // SESSION STATE UTIL
 
   const saveColorsToSession = () => {
     // if pathname !== information || /

@@ -1,4 +1,6 @@
 <script>
+//MAIN TRIGGER UTIL
+
 console.log("script tag is running ");
 let pathname = location.pathname; // Initial pathname assignment
 
@@ -21,7 +23,8 @@ window.addEventListener("click", function () {
   pathCompareAndColorTrigger();
 });
 
-//hese elements have the same path / "name" regardless of page
+//GET CONSTANT ELEMENTS UTIL
+
 const getConstantEls = () => {
   const headerSectionElement = document.querySelector(
     "#K0174265030 > div > div"
@@ -37,6 +40,9 @@ const getConstantEls = () => {
 const confirmElmntsExist = (arrayOfElements) => {
   return arrayOfElements.every((element) => document.body.contains(element));
 };
+
+//COLOR ALIGN CONTROLLER
+
 const colorAlignController = () => {
   const currentPath = location.pathname;
   // getting current color determining elements
@@ -85,6 +91,8 @@ const colorAlignController = () => {
   }, 100);
 };
 
+// COLOR DETERMINING ELEMENT UTIL
+
 const getColorDeterminingElement = (elementJSPathString) => {
   const pageIds = [
     "O0106132807",
@@ -107,6 +115,8 @@ const getColorDeterminingElement = (elementJSPathString) => {
   }
   return false;
 };
+
+//COLOR ALIGN UTL
 const alignColors = (
   elementsArray,
   referenceElement,
@@ -129,9 +139,8 @@ const alignColors = (
   });
 };
 
-const saveColorsToSession = () => {
-  // if pathname !== information || /
-};
+
+//BROWSER NAV UTIL
 
 // page refresh functionality
 if (
@@ -151,12 +160,11 @@ window.addEventListener("popstate", function () {
   }, 100);
 });
 
+// keep this
+
 setTimeout(() => {
   colorAlignController();
 }, 100);
-
-// THIS IS A TEST
-const doop = "doop";
 
 
 </script>
