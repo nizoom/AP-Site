@@ -2,7 +2,7 @@
   console.log("script tag is running ");
   let pathname = location.pathname; // Initial pathname assignment
 
-  window.addEventListener("click", function () {
+  const pathCompareAndColorTrigger = () => {
     const currentPath = location.pathname; // Get the current path on each click
 
     if (currentPath !== pathname) {
@@ -15,6 +15,10 @@
         colorAlignController();
       }, 100);
     }
+  };
+
+  window.addEventListener("click", function () {
+    pathCompareAndColorTrigger();
   });
 
   //hese elements have the same path / "name" regardless of page
@@ -34,15 +38,17 @@
     return arrayOfElements.every((element) => document.body.contains(element));
   };
   const colorAlignController = () => {
+    const currentPath = location.pathname;
+    // getting current color determining elements
     const mainPageElJsString = "> div > div";
     const captionElJsString =
       "> div > div > bodycopy > column-set > column-unit > gallery-justify > media-item:nth-child(1) > figcaption > span";
     setTimeout(() => {
-      const [headerSectionElement, aPNameElement, bannerElement] =
-        getConstantEls();
       const currentMainPageEl = getColorDeterminingElement(mainPageElJsString);
       const currentCaptionElement =
         getColorDeterminingElement(captionElJsString);
+      const [headerSectionElement, aPNameElement, bannerElement] =
+        getConstantEls();
       // if currentMain page exists then assign current background color to header background color
       if (
         confirmElmntsExist([headerSectionElement, aPNameElement, bannerElement])
@@ -123,13 +129,28 @@
       }
     });
   };
+
+  const saveColorsToSession = () => {
+    // if pathname !== information || /
+  };
+
+  // page refresh functionality
   if (
     performance.navigation &&
     performance.navigation.type === performance.navigation.TYPE_RELOAD
   ) {
     console.log("Page was reloaded");
-    colorAlignController();
+    setTimeout(() => {
+      colorAlignController();
+    }, 100);
   }
+  // Backward and forward btn functionality
+  window.addEventListener("popstate", function () {
+    console.log("Browser navigation (back or forward) detected");
+    setTimeout(() => {
+      pathCompareAndColorTrigger();
+    }, 100);
+  });
 
   setTimeout(() => {
     colorAlignController();

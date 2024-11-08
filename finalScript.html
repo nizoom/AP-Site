@@ -1,0 +1,162 @@
+<script>
+console.log("script tag is running ");
+let pathname = location.pathname; // Initial pathname assignment
+
+const pathCompareAndColorTrigger = () => {
+  const currentPath = location.pathname; // Get the current path on each click
+
+  if (currentPath !== pathname) {
+    // Check if the current path is different from the stored path
+    console.log("pathname changed to " + currentPath);
+    pathname = currentPath; // Update the stored path to the new one
+
+    // Your custom code to run on path change
+    setTimeout(() => {
+      colorAlignController();
+    }, 100);
+  }
+};
+
+window.addEventListener("click", function () {
+  pathCompareAndColorTrigger();
+});
+
+//hese elements have the same path / "name" regardless of page
+const getConstantEls = () => {
+  const headerSectionElement = document.querySelector(
+    "#K0174265030 > div > div"
+  );
+  const aPNameElement = document.querySelector(
+    "#K0174265030 > div > div > bodycopy > column-set > column-unit:nth-child(3) > div > h1 > span"
+  );
+
+  const bannerElement = document.querySelector("#O4186593732 > div > div");
+  return [headerSectionElement, aPNameElement, bannerElement];
+};
+
+const confirmElmntsExist = (arrayOfElements) => {
+  return arrayOfElements.every((element) => document.body.contains(element));
+};
+const colorAlignController = () => {
+  const currentPath = location.pathname;
+  // getting current color determining elements
+  const mainPageElJsString = "> div > div";
+  const captionElJsString =
+    "> div > div > bodycopy > column-set > column-unit > gallery-justify > media-item:nth-child(1) > figcaption > span";
+  setTimeout(() => {
+    const currentMainPageEl = getColorDeterminingElement(mainPageElJsString);
+    const currentCaptionElement = getColorDeterminingElement(captionElJsString);
+    const [headerSectionElement, aPNameElement, bannerElement] =
+      getConstantEls();
+    // if currentMain page exists then assign current background color to header background color
+    if (
+      confirmElmntsExist([headerSectionElement, aPNameElement, bannerElement])
+    ) {
+      // console.log("confirmed");
+      alignColors(
+        [headerSectionElement, bannerElement],
+        currentMainPageEl,
+        "background-color",
+        "backgroundColor"
+      );
+    } else {
+      console.log("an element does not exist");
+    }
+    // if currentcaptionEl and apName Exists then assign caption color as name color
+    if (currentCaptionElement && aPNameElement) {
+      alignColors([aPNameElement], currentCaptionElement, "color", "color");
+    }
+    if (pathname === "/information") {
+      console.log(pathname);
+      console.log("headerSectionElement ", headerSectionElement);
+      console.log("bannerElement ", bannerElement);
+      alignColors(
+        [bannerElement],
+        currentMainPageEl,
+        "background-color",
+        "backgroundColor"
+      );
+    } else {
+      console.log("Name process elements main and header");
+      console.log(currentCaptionElement);
+      console.log(aPNameElement);
+    }
+    return false;
+  }, 100);
+};
+
+const getColorDeterminingElement = (elementJSPathString) => {
+  const pageIds = [
+    "O0106132807",
+    "F3645062839",
+    "V2310587329",
+    "H4280264991",
+    "X0385859603",
+    "S4102939361",
+    "L3218446703",
+    "X3259902604",
+    "F3607908150",
+  ];
+  for (id of pageIds) {
+    const potentialElement = document.querySelector(
+      `#${id} ${elementJSPathString}`
+    );
+    if (potentialElement) {
+      return potentialElement;
+    }
+  }
+  return false;
+};
+const alignColors = (
+  elementsArray,
+  referenceElement,
+  styleNeeded,
+  cssProperty
+) => {
+  console.log("setting colors");
+  const cssValue = window
+    .getComputedStyle(referenceElement, null)
+    .getPropertyValue(styleNeeded);
+
+  elementsArray.forEach((element) => {
+    element.style[cssProperty] = cssValue;
+    // extra step needed to change the "ANDIYAH" part of the element because its a seperate <a> element
+    if (cssProperty === "color") {
+      // aPNameElement
+      const aElement = element.querySelector("a");
+      aElement.style.color = cssValue;
+    }
+  });
+};
+
+const saveColorsToSession = () => {
+  // if pathname !== information || /
+};
+
+// page refresh functionality
+if (
+  performance.navigation &&
+  performance.navigation.type === performance.navigation.TYPE_RELOAD
+) {
+  console.log("Page was reloaded");
+  setTimeout(() => {
+    colorAlignController();
+  }, 100);
+}
+// Backward and forward btn functionality
+window.addEventListener("popstate", function () {
+  console.log("Browser navigation (back or forward) detected");
+  setTimeout(() => {
+    pathCompareAndColorTrigger();
+  }, 100);
+});
+
+setTimeout(() => {
+  colorAlignController();
+}, 100);
+
+// THIS IS A TEST
+const doop = "doop";
+
+
+</script>

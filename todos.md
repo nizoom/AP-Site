@@ -1,3 +1,3 @@
 - trigger color align on refresh
-- trigger color align on forward and backward browser btns
-- banner color after clicking home
+- trigger color align on forward and backward browser btns √
+- banner color after clicking home √
